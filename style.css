@@ -1,0 +1,24 @@
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    width: 960px;
+    height: 960px;
+}
+
+.column {
+    display: flex;
+}
+
+
+
+
+.row:hover {
+    background-color: rgb(24, 121, 43);
+    color: black;
+    transition: 0.7s;
+
+}
