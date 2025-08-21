@@ -1,39 +1,154 @@
-const btn = document.querySelector(".btn");
-const dialog = document.querySelector("#myDialog");
-const container = document.querySelector(".container");
-const confirmSize = document.querySelector("#confirm-btn");
-const closs = document.querySelector("#close-btn");
-const input = document.querySelector("#demoInput");
-let gSize = 16;
+let GRIDSIZE = 16;
 
-btn.addEventListener("click",()=> dialog.showModal());
-closs.addEventListener("click", ()=> dialog.close());
-confirmSize.addEventListener("click", ()=> confirmUpdate());
+//Getting access to the elements declared in html
+const myGridContainer = document.getElementById("grid-container");
+const myGrid = document.getElementById("grid");
+const sizeButton = document.getElementById("choose-size");
+const dialog = document.querySelector("dialog");
+const closs = document.getElementById("close");
+const sizeValue = document.getElementById("sizeSelect");
+const resetButton = document.getElementById("reset-state");
+const eraseButton = document.getElementById("erase-state");
+const rangeDiv = document.getElementById("range-div");
+const rangeInfo = document.createElement("label");
+//rangeInfo.classList.add("info");
+//rangeInfo.innerHTML = "The current size of grid is " + `${sizeValue.value}`;
+//rangeDiv.appendChild(rangeInfo);
+//const colorPicker = document.getElementById("color-picker");
+//const colorSwitch = document.getElementById("color-switch");
 
-function confirmUpdate(){
-     gSize=input.value;
-     makeGrids(gSize);
+//const DEFAULTCOLOR = "#000000"
+//let isDrawing = false;
+//let isErasing = false;
+//let currentSize = 16;
+//let currentColor =  DEFAULTCOLOR;
+//let coloredDrawing = false;
+
+
+
+
+//Event handlers
+//sizeButton.addEventListener("click",()=> {dialog.showModal()});
+//closs.addEventListener("click", ()=> dialog.close());
+//eraseButton.addEventListener("click", (e)=> eraseDrawing(e));
+//eraseButton.addEventListener("dblclick", (e)=> eraseDrawing(e));
+
+//FUNCTION TO CREATE THE GRID FOR DRAWING
+function createGrid(gSize){
+ for (let i=0; i< (gSize*gSize); i++ )
+ {
+  let gridCell = document.createElement("div");
+  gridCell.style.height = `${(600/gSize)-0.25}px`;
+  gridCell.style.width = `${(600/gSize)-0.25}px`;
+  gridCell.classList.add("cell");
+  gridCell.addEventListener("mousedown",(e)=> draw(e));
+  gridCell.addEventListener("mouseover", (e)=> draw(e));
+  gridCell.addEventListener("mouseup", (e)=> draw(e));
+  gridCell.addEventListener("drag", (e)=> draw(e));
+  gridCell.addEventListener("mouseover", (e)=> erase(e));
+  myGrid.appendChild(gridCell);
+ }
+}
+/*
+resetButton.addEventListener("click", ()=> {
+     //removeGrid();
+     //createGrid(currentSize)
+     document.querySelectorAll("div.cell").forEach((item)=> {
+           item.style.backgroundColor = "white";
+     });
+        
+     });
+ 
+ colorSwitch.addEventListener("input", ()=> {
+
+    if(colorSwitch.checked)
+    {
+        coloredDrawing = colorSwitch.checked;
+        currentColor = colorPicker.value;
+    }
+
+    else{
+        currentColor = DEFAULTCOLOR;
+    }
+
+    
+    colorPicker.addEventListener("input",(e)=>changeColor(e)); 
+    }
+);  
+     
+
+
+//change the size of the grid
+sizeValue.oninput = function() {
+currentSize = this.value;    
+rangeInfo.innerHTML = "The current size of grid is " + currentSize;
+removeGrid();
+createGrid(currentSize);
+
 }
 
-function makeGrids(size)
+//Color functions
+function changeColor(event){
+     currentColor = event.target.value;
+}
+
+//function to remove the current grid
+function removeGrid()
 {
-container.innerHTML = "";
-for (let i = 0; i < size; i++)
-{
-  let column = document.createElement("div");
-  column.classList.add("column");
-  for (let j = 1; j <= size; j++)
-  {
-    const row = document.createElement("div");
-    row.classList.add("row");
-    row.style.border = "0.1px solid rgba(0, 0, 0, 0.05)";
-    row.style.width = (960/size) + "px";
-    row.style.height = (960/size) + "px";
-    //row.innerText = (i * size) + j;
-    column.appendChild(row);
-  }
-  container.appendChild(column);
+   myGrid.innerHTML = "";
 }
 
+function draw(e)
+{
+    
+   if(e.type === "mousedown") 
+   {
+     isDrawing = true;
+     e.target.style.backgroundColor = currentColor;
+   }
+
+  else if(e.type === "mouseover" && isDrawing)  
+     {
+      e.target.style.backgroundColor = currentColor;
+     }
+
+  else 
+    {
+      isDrawing = false;
+    }  
+   
+   
 }
+
+function eraseDrawing(e){
+    if(e.type === "click")
+    {
+       isErasing = true;
+       isDrawing = false;
+    
+    }
+
+    else if(e.type === "dblclick")
+
+    {
+            isErasing = false;
+    }
+   
+}
+
+function erase(e){
+    if (e.type === "mouseover" && isErasing)
+    {
+        e.target.style.backgroundColor = "white";
+    }
+
+} */
+
+
+
+ 
+
+createGrid(GRIDSIZE);
+
+
 

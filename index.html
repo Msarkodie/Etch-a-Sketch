@@ -7,18 +7,43 @@
     <title>Document</title>
 </head>
 <body>
-  <button class="btn">START DRAWING</button>
-  <dialog id="myDialog">
-       <h2>Start Prompt</h2>
-       <p>Please to begin, select size of grid</p>
-       <input id=demoInput type=number min=1 max=100>
-       <button id="confirm-btn">CONFIRM</button>
-       <button id="close-btn">CLOSE</button>
-  </dialog>
-  <div class="container">
-
+  <div id="heading">
+    <h1>ETCH A SKETCH. BRING REALITY INTO DRAWING</h1>
   </div>
-  
+
+  <!--The choose size modal
+  <dialog id="sizeModal" class="modal" >
+     <p>GREETINGS!!!</p>
+     <p>PLEASE KINDLY SPECIFY SIZE OF GRID</p>
+     <div id="range-div">
+      <input type="range" id="sizeSelect" value="16" min="1" max="200">
+     </div>
+     <div id="cls-button-div">
+       <button id="close" class="button">CLOSE</button>
+     </div>
+     
+  </dialog> -->
+
+ <!-- <div id="screen-container">
+    <div id="buttons-group" class="buttons-group">
+      <button id="choose-size" class="button">CHOOSE GRID SIZE</button>
+      <button id="reset-state" class="button">RESET</button>
+      <button id="erase-state" class="button">ERASE</button>
+      <div class="toggle-div">
+        <label class="toggle">
+          <input type="checkbox" name="colors" id="color-switch">
+          <span class="slider"></span>
+        </label> 
+        <label>COLOR ON/OFF</label>
+      </div>
+      <div class="color-div">
+        <input type="color" id="color-picker" value="#000000">
+      </div>  
+    </div> -->
+    <div id="grid-container">
+      <div id="grid"></div>
+    </div>
+  </div>
 <script src="myscript.js"></script>
 </body>
 </html>
