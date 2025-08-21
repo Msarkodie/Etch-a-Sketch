@@ -28,8 +28,8 @@ const rangeInfo = document.createElement("label");
 
 
 //Event handlers
-//sizeButton.addEventListener("click",()=> {dialog.showModal()});
-//closs.addEventListener("click", ()=> dialog.close());
+sizeButton.addEventListener("click",()=> {dialog.showModal()});
+closs.addEventListener("click", ()=> dialog.close());
 //eraseButton.addEventListener("click", (e)=> eraseDrawing(e));
 //eraseButton.addEventListener("dblclick", (e)=> eraseDrawing(e));
 
