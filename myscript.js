@@ -19,7 +19,7 @@ rangeDiv.appendChild(rangeInfo);
 
 const DEFAULTCOLOR = "#000000"
 let isDrawing = false;
-//let isErasing = false;
+let isErasing = false;
 let currentSize = 16;
 let currentColor =  DEFAULTCOLOR;
 //let coloredDrawing = false;
@@ -29,7 +29,7 @@ let currentColor =  DEFAULTCOLOR;
 sizeButton.addEventListener("click",()=> {dialog.showModal()});
 closs.addEventListener("click", ()=> dialog.close());
 
-//Reset feature
+//Reset feature added
 resetButton.addEventListener("click", ()=> {
      //removeGrid();
      //createGrid(currentSize)
@@ -38,8 +38,8 @@ resetButton.addEventListener("click", ()=> {
      });
         
      });
-//eraseButton.addEventListener("click", (e)=> eraseDrawing(e));
-//eraseButton.addEventListener("dblclick", (e)=> eraseDrawing(e));
+eraseButton.addEventListener("click", (e)=> eraseDrawing(e));
+eraseButton.addEventListener("dblclick", (e)=> eraseDrawing(e));
 
 //FUNCTION TO CREATE THE GRID FOR DRAWING
 function createGrid(gSize){
@@ -91,11 +91,31 @@ function draw(e)
     {
       isDrawing = false;
     }  
-   
+   }
+
+function eraseDrawing(e){
+    if(e.type === "click")
+    {
+       isErasing = true;
+       isDrawing = false;
+    
+    }
+
+    else if(e.type === "dblclick")
+
+    {
+            isErasing = false;
+    }
    
 }
 
+function erase(e){
+    if (e.type === "mouseover" && isErasing)
+    {
+        e.target.style.backgroundColor = "white";
+    }
 
+}
 /*
 
  
@@ -124,29 +144,7 @@ function changeColor(event){
 
 
 
-function eraseDrawing(e){
-    if(e.type === "click")
-    {
-       isErasing = true;
-       isDrawing = false;
-    
-    }
-
-    else if(e.type === "dblclick")
-
-    {
-            isErasing = false;
-    }
-   
-}
-
-function erase(e){
-    if (e.type === "mouseover" && isErasing)
-    {
-        e.target.style.backgroundColor = "white";
-    }
-
-} */
+ */
 
 
 
