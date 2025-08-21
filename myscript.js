@@ -17,11 +17,11 @@ rangeDiv.appendChild(rangeInfo);
 //const colorPicker = document.getElementById("color-picker");
 //const colorSwitch = document.getElementById("color-switch");
 
-//const DEFAULTCOLOR = "#000000"
-//let isDrawing = false;
+const DEFAULTCOLOR = "#000000"
+let isDrawing = false;
 //let isErasing = false;
-//let currentSize = 16;
-//let currentColor =  DEFAULTCOLOR;
+let currentSize = 16;
+let currentColor =  DEFAULTCOLOR;
 //let coloredDrawing = false;
 
 
@@ -56,11 +56,35 @@ removeGrid();
 createGrid(currentSize);
 }
 
-//function to remove the current grid
+//Function to remove the current grid
 function removeGrid()
 {
    myGrid.innerHTML = "";
 }
+
+//Funtion to draw on grid
+function draw(e)
+{
+    
+   if(e.type === "mousedown") 
+   {
+     isDrawing = true;
+     e.target.style.backgroundColor = currentColor;
+   }
+
+  else if(e.type === "mouseover" && isDrawing)  
+     {
+      e.target.style.backgroundColor = currentColor;
+     }
+
+  else 
+    {
+      isDrawing = false;
+    }  
+   
+   
+}
+
 
 /*
 resetButton.addEventListener("click", ()=> {
@@ -96,27 +120,6 @@ function changeColor(event){
 }
 
 
-function draw(e)
-{
-    
-   if(e.type === "mousedown") 
-   {
-     isDrawing = true;
-     e.target.style.backgroundColor = currentColor;
-   }
-
-  else if(e.type === "mouseover" && isDrawing)  
-     {
-      e.target.style.backgroundColor = currentColor;
-     }
-
-  else 
-    {
-      isDrawing = false;
-    }  
-   
-   
-}
 
 function eraseDrawing(e){
     if(e.type === "click")
