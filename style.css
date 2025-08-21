@@ -95,7 +95,17 @@ h1{
     text-align: center;
    }
 
-
+   /*styling the close button in the modal pop up*/
+   #cls-button-div{
+    display: flex;
+    justify-content: center;
+    }
+    
+    #close{
+    width: 50px;
+    height:   40px;
+    padding: 3px;
+}
  /* 
 
 
@@ -112,24 +122,13 @@ h1{
 }
 
 
-
-#close{
-    width: 50px;
-    height:   40px;
-    padding: 3px;
-}
-
 #range-div{
     display: flex;
     flex-direction: column;
     align-content: center;
 }
 
-#cls-button-div{
-    display: flex;
-    justify-content: center;
-    
-}
+
 
 
 .toggle{
