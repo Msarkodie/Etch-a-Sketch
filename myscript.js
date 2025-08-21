@@ -28,6 +28,16 @@ let currentColor =  DEFAULTCOLOR;
 //Event handlers
 sizeButton.addEventListener("click",()=> {dialog.showModal()});
 closs.addEventListener("click", ()=> dialog.close());
+
+//Reset feature
+resetButton.addEventListener("click", ()=> {
+     //removeGrid();
+     //createGrid(currentSize)
+     document.querySelectorAll("div.cell").forEach((item)=> {
+           item.style.backgroundColor = "white";
+     });
+        
+     });
 //eraseButton.addEventListener("click", (e)=> eraseDrawing(e));
 //eraseButton.addEventListener("dblclick", (e)=> eraseDrawing(e));
 
@@ -87,14 +97,7 @@ function draw(e)
 
 
 /*
-resetButton.addEventListener("click", ()=> {
-     //removeGrid();
-     //createGrid(currentSize)
-     document.querySelectorAll("div.cell").forEach((item)=> {
-           item.style.backgroundColor = "white";
-     });
-        
-     });
+
  
  colorSwitch.addEventListener("input", ()=> {
 
