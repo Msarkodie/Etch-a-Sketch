@@ -93,6 +93,7 @@ function draw(e)
     }  
    }
 
+//Function to erase on the grid   
 function eraseDrawing(e){
     if(e.type === "click")
     {
@@ -116,6 +117,8 @@ function erase(e){
     }
 
 }
+
+
 /*
 
  
