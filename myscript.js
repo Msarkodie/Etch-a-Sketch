@@ -11,9 +11,9 @@ const resetButton = document.getElementById("reset-state");
 const eraseButton = document.getElementById("erase-state");
 const rangeDiv = document.getElementById("range-div");
 const rangeInfo = document.createElement("label");
-//rangeInfo.classList.add("info");
-//rangeInfo.innerHTML = "The current size of grid is " + `${sizeValue.value}`;
-//rangeDiv.appendChild(rangeInfo);
+rangeInfo.classList.add("info");
+rangeInfo.innerHTML = "The current size of grid is " + `${sizeValue.value}`;
+rangeDiv.appendChild(rangeInfo);
 //const colorPicker = document.getElementById("color-picker");
 //const colorSwitch = document.getElementById("color-switch");
 
@@ -23,8 +23,6 @@ const rangeInfo = document.createElement("label");
 //let currentSize = 16;
 //let currentColor =  DEFAULTCOLOR;
 //let coloredDrawing = false;
-
-
 
 
 //Event handlers
@@ -49,6 +47,21 @@ function createGrid(gSize){
   myGrid.appendChild(gridCell);
  }
 }
+
+//change the size of the grid with the slider in the modal
+sizeValue.oninput = function() {
+currentSize = this.value;    
+rangeInfo.innerHTML = "The current size of grid is " + currentSize;
+removeGrid();
+createGrid(currentSize);
+}
+
+//function to remove the current grid
+function removeGrid()
+{
+   myGrid.innerHTML = "";
+}
+
 /*
 resetButton.addEventListener("click", ()=> {
      //removeGrid();
@@ -77,26 +90,11 @@ resetButton.addEventListener("click", ()=> {
 );  
      
 
-
-//change the size of the grid
-sizeValue.oninput = function() {
-currentSize = this.value;    
-rangeInfo.innerHTML = "The current size of grid is " + currentSize;
-removeGrid();
-createGrid(currentSize);
-
-}
-
 //Color functions
 function changeColor(event){
      currentColor = event.target.value;
 }
 
-//function to remove the current grid
-function removeGrid()
-{
-   myGrid.innerHTML = "";
-}
 
 function draw(e)
 {

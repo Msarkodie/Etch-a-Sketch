@@ -105,6 +105,17 @@ h1{
     width: 50px;
     height:   40px;
     padding: 3px;
+    }
+
+    /*Styling the slider in the modal pop up*/
+    #range-div{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+
+    #switch-label,.info{
+    text-align: center;
+}
 }
  /* 
 
@@ -117,16 +128,10 @@ h1{
     align-items: center;
 }
 
-#switch-label,.info{
-    text-align: center;
-}
 
 
-#range-div{
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
+
+
 
 
 
