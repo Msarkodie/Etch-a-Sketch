@@ -11,6 +11,7 @@ const resetButton = document.getElementById("reset-state");
 const eraseButton = document.getElementById("erase-state");
 const rangeDiv = document.getElementById("range-div");
 const rangeInfo = document.createElement("label");
+const eraseInfo = document.getElementById("erase-state");
 rangeInfo.classList.add("info");
 rangeInfo.innerHTML = "The current size of grid is " + `${sizeValue.value}`;
 rangeDiv.appendChild(rangeInfo);
@@ -100,6 +101,7 @@ function eraseDrawing(e){
     {
        isErasing = true;
        isDrawing = false;
+       eraseInfo.innerHTML = "DOUBLECLK TO DEACTIVATE";
     
     }
 
@@ -107,6 +109,7 @@ function eraseDrawing(e){
 
     {
             isErasing = false;
+            eraseInfo.innerHTML = "ERASE";
     }
    
 }
