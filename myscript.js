@@ -14,15 +14,15 @@ const rangeInfo = document.createElement("label");
 rangeInfo.classList.add("info");
 rangeInfo.innerHTML = "The current size of grid is " + `${sizeValue.value}`;
 rangeDiv.appendChild(rangeInfo);
-//const colorPicker = document.getElementById("color-picker");
-//const colorSwitch = document.getElementById("color-switch");
+const colorPicker = document.getElementById("color-picker");
+const colorSwitch = document.getElementById("color-switch");
 
 const DEFAULTCOLOR = "#000000"
 let isDrawing = false;
 let isErasing = false;
 let currentSize = 16;
 let currentColor =  DEFAULTCOLOR;
-//let coloredDrawing = false;
+let coloredDrawing = false;
 
 
 //Event handlers
@@ -40,6 +40,7 @@ resetButton.addEventListener("click", ()=> {
      });
 eraseButton.addEventListener("click", (e)=> eraseDrawing(e));
 eraseButton.addEventListener("dblclick", (e)=> eraseDrawing(e));
+colorSwitch.addEventListener("change", changeColor);
 
 //FUNCTION TO CREATE THE GRID FOR DRAWING
 function createGrid(gSize){
@@ -75,7 +76,7 @@ function removeGrid()
 //Funtion to draw on grid
 function draw(e)
 {
-    
+   setCurrentColor(); 
    if(e.type === "mousedown") 
    {
      isDrawing = true;
@@ -119,35 +120,42 @@ function erase(e){
 }
 
 
-/*
+/* */
 
  
- colorSwitch.addEventListener("input", ()=> {
-
-    if(colorSwitch.checked)
-    {
-        coloredDrawing = colorSwitch.checked;
-        currentColor = colorPicker.value;
-    }
-
-    else{
-        currentColor = DEFAULTCOLOR;
-    }
-
-    
-    colorPicker.addEventListener("input",(e)=>changeColor(e)); 
-    }
-);  
-     
-
 //Color functions
-function changeColor(event){
-     currentColor = event.target.value;
+function changeColor(){
+   
+   if(this.checked)
+   {
+      coloredDrawing = true;
+   }
+
+   else{
+      coloredDrawing = false;
+   }
+
+     
+}
+
+function setCurrentColor()
+{
+   if(coloredDrawing)
+   {
+      currentColor = colorPicker.value;
+   }
+
+   else
+   {
+      currentColor = DEFAULTCOLOR;
+   }
 }
 
 
 
- */
+
+
+
 
 
 
